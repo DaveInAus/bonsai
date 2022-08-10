@@ -25,7 +25,8 @@ import cafe.adriel.bonsai.core.BonsaiScope
 
 @Composable
 internal fun <T> BonsaiScope<T>.Node(
-    node: Node<T>
+    node: Node<T>,
+    toggleIconAtEnd : Boolean
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -33,8 +34,15 @@ internal fun <T> BonsaiScope<T>.Node(
             .padding(vertical = 1.dp)
             .padding(start = node.depth * style.toggleIconSize)
     ) {
-        ToggleIcon(node)
-        NodeContent(node)
+        if (toggleIconAtEnd) {
+            NodeContent(node)
+            Spacer(Modifier.weight(1f))
+            ToggleIcon(node)
+        }
+        else {
+            ToggleIcon(node)
+            NodeContent(node)
+        }
     }
 }
 

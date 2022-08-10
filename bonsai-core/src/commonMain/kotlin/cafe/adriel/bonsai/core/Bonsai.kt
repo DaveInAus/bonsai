@@ -96,7 +96,7 @@ public fun <T> Bonsai(
                 .horizontalScroll(rememberScrollState())
         ) {
             items(tree.nodes, { it.key }) { node ->
-                Node(node)
+                Node(node,style.toggleIconAlignRight)
             }
         }
     }

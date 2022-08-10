@@ -62,7 +62,8 @@ object DslTreeScreen : TreeScreen<String> {
         Bonsai(
             tree = tree,
             style = BonsaiStyle(
-                nodeNameStartPadding = 4.dp
+                nodeNameStartPadding = 4.dp,
+                toggleIconAlignRight = true
             ),
             modifier = modifier
         )
